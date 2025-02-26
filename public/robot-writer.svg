@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="500" viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Robot Body -->
+  <rect x="120" y="180" width="160" height="200" rx="20" fill="#9234ea" />
+  
+  <!-- Robot Head -->
+  <rect x="140" y="100" width="120" height="100" rx="15" fill="#9234ea" />
+  
+  <!-- Robot Eyes -->
+  <circle cx="180" cy="140" r="15" fill="white" />
+  <circle cx="220" cy="140" r="15" fill="white" />
+  <circle cx="180" cy="140" r="8" fill="black" />
+  <circle cx="220" cy="140" r="8" fill="black" />
+  
+  <!-- Robot Antenna -->
+  <rect x="190" y="70" width="20" height="40" fill="#9234ea" />
+  <circle cx="200" cy="60" r="10" fill="#9234ea" />
+  
+  <!-- Robot Arms -->
+  <rect x="80" y="200" width="40" height="120" rx="20" fill="#9234ea" />
+  <rect x="280" y="200" width="40" height="120" rx="20" fill="#9234ea" />
+  
+  <!-- Robot Hands -->
+  <circle cx="100" cy="330" r="20" fill="#9234ea" />
+  <circle cx="300" cy="330" r="20" fill="#9234ea" />
+  
+  <!-- Robot Legs -->
+  <rect x="140" y="380" width="40" height="80" rx="20" fill="#9234ea" />
+  <rect x="220" y="380" width="40" height="80" rx="20" fill="#9234ea" />
+  
+  <!-- Robot Feet -->
+  <rect x="130" y="450" width="60" height="20" rx="10" fill="#9234ea" />
+  <rect x="210" y="450" width="60" height="20" rx="10" fill="#9234ea" />
+  
+  <!-- Robot Screen/Display -->
+  <rect x="150" y="220" width="100" height="60" rx="10" fill="white" />
+  <line x1="160" y1="240" x2="240" y2="240" stroke="#9234ea" stroke-width="4" />
+  <line x1="160" y1="255" x2="220" y2="255" stroke="#9234ea" stroke-width="4" />
+  
+  <!-- Robot Buttons -->
+  <circle cx="170" cy="300" r="8" fill="white" />
+  <circle cx="200" cy="300" r="8" fill="white" />
+  <circle cx="230" cy="300" r="8" fill="white" />
+  
+  <!-- Pen/Pencil in Hand -->
+  <rect x="290" y="320" width="60" height="10" rx="5" transform="rotate(-45 290 320)" fill="#333" />
+  <path d="M340 290 L350 280 L360 290 L350 300 Z" fill="#333" />
+</svg>
