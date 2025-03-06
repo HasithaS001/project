@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box, Container, Typography, Stack, Grid } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 import { GitHub, Twitter, LinkedIn, Email, Article, Help } from '@mui/icons-material';
