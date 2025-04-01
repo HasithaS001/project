@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 // import { TypeAnimation } from "react-type-animation";
-import GrammarCheckerForm from "./GrammarCheckerForm";
+import GrammarCheckerForm from "./SummarizerTool";
 import FAQ from "./FAQ";
 // import TypeWriter from "./TypeWriter";
 import {
@@ -22,7 +22,7 @@ import {
   Tooltip,
   createTheme,
   ThemeProvider,
-  SelectChangeEvent,
+  // SelectChangeEvent,
 } from "@mui/material";
 import { alpha } from "@mui/material/styles";
 import {
@@ -49,12 +49,20 @@ import {
   AIDetectorResult,
   // ParaphraseResult,
 } from "../types/grammar";
-import {
-  parseGrammarResult,
-  parseParaphraseResult,
-  parseReadabilityResult,
-  parseAIDetectorResult,
-} from "../utils/textProcessing";
+import GrammarCheckerTool from "./GrammarCheckerTool";
+import SummarizerTool from "./SummarizerTool";
+import ParaphraserTool from "./ParaphraserTool";
+import TranslatorTool from "./TranslatorTool";
+import ToneConverterTool from "./ToneConverterTool";
+import HumanizerTool from "./HumanizerTool";
+import AIDetectorTool from "./AIDetectorTool";
+import ReadabilityCheckerTool from "./ReadabilityCheckerTool";
+// import {
+//   parseGrammarResult,
+//   parseParaphraseResult,
+//   parseReadabilityResult,
+//   parseAIDetectorResult,
+// } from "../utils/textProcessing";
 
 // Initialize Gemini AI
 const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY);
@@ -596,43 +604,7 @@ const WritingDashboard = ({
     return "#F44336";
   };
 
-  const customToolControls = {
-    tone: (
-      <Box sx={{ mb: 2 }}>
-        <Typography variant="subtitle2" gutterBottom>
-          Select Tone
-        </Typography>
-        <ToggleButtonGroup
-          value={toneStyle}
-          exclusive
-          // onChange={handleToneStyleChange}
-          aria-label="tone style"
-        >
-          <ToggleButton value="formal" aria-label="formal">
-            🎩 Formal
-          </ToggleButton>
-          <ToggleButton value="casual" aria-label="casual">
-            😎 Casual
-          </ToggleButton>
-          <ToggleButton value="persuasive" aria-label="persuasive">
-            📢 Persuasive
-          </ToggleButton>
-          <ToggleButton value="creative" aria-label="creative">
-            💡 Creative
-          </ToggleButton>
-          <ToggleButton value="humorous" aria-label="humorous">
-            🎭 Humorous
-          </ToggleButton>
-          <ToggleButton value="academic" aria-label="academic">
-            📰 Academic
-          </ToggleButton>
-          <ToggleButton value="authoritative" aria-label="authoritative">
-            🏆 Authoritative
-          </ToggleButton>
-        </ToggleButtonGroup>
-      </Box>
-    ),
-  };
+  
 
   const grammarFAQs = [
     {
@@ -1217,7 +1189,7 @@ const WritingDashboard = ({
                 </Box>
               )}
 
-              {selectedTool === "tone" && customToolControls.tone}
+              {selectedTool === "tone"}
             </Box>
 
             <Box
@@ -1225,7 +1197,7 @@ const WritingDashboard = ({
                 display: "flex",
                 gap: 3,
                 flex: 1,
-                minHeight: { xs: "auto", md: "calc(100vh - 250px)" },
+                minHeight: { xs: "auto", md: "calc(100vh - 450px)" },
                 flexDirection: { xs: "column", md: "row" },
               }}
             >
@@ -1238,23 +1210,16 @@ const WritingDashboard = ({
                   width: "100%",
                 }}
               >
-                {/* <Typography
-                  variant="h6"
-                  gutterBottom
-                  sx={{
-                    fontWeight: 600,
-                    color: "text.primary",
-                    opacity: 0.9,
-                  }}
-                >
-                  Input
-                </Typography> */}
-                <div>
-                  <GrammarCheckerForm />
-                </div>
+                {/* Add individual components for each tool here */}
+                {selectedTool === "grammar" && <GrammarCheckerTool />}
+                {selectedTool === "summarize" && <SummarizerTool />}
+                {selectedTool === "paraphrase" && <ParaphraserTool />}
+                {selectedTool === "translate" && <TranslatorTool />}
+                {selectedTool === "tone" && <ToneConverterTool />}
+                {selectedTool === "humanize" && <HumanizerTool />}
+                {selectedTool === "ai-detector" && <AIDetectorTool />}
+                {selectedTool === "readability" && <ReadabilityCheckerTool />}
               </Box>
-
-              
             </Box>
 
             {/* Promotional content for Paraphrase tool */}

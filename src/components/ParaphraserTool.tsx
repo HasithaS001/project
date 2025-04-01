@@ -16,7 +16,7 @@ const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
 const genAI = new GoogleGenerativeAI(API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-const GrammarCheckerForm = () => {
+const ParaphraserTool = () => {
   const [enteredText, setEnteredText] = useState("");
   // const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -26,7 +26,8 @@ const GrammarCheckerForm = () => {
   const analyzeText = async () => {
     try {
       setLoading(true);
-      const prompt = `Check the grammar in the following text "${enteredText}" and output only the corrected text without changing the subject. Underline and bold only the corrected words or phrases using HTML <b><u>...</u></b> tags`;
+      const prompt = `Rephrase the following text to ensure originality while preserving its meaning: "${enteredText}". Only return the revised text without any additional commentary.`;
+
       const result = await model.generateContent(prompt);
       const text = result.response.text();
       setResultText(text);
@@ -52,7 +53,7 @@ const GrammarCheckerForm = () => {
             Input
           </Typography>
           <TextField
-            placeholder="Enter the text you want to check"
+            placeholder="Enter the text you want to paraphrase"
             multiline
             rows={14}
             fullWidth
@@ -85,7 +86,7 @@ const GrammarCheckerForm = () => {
           </Button>
         </Box>
 
-        <Box sx={{ flex: 1,  width: "100%" }}>
+        <Box sx={{ flex: 1, width: "100%" }}>
           <Typography variant="h6" sx={{ mb: 2 }}>
             Output
           </Typography>
@@ -114,4 +115,4 @@ const GrammarCheckerForm = () => {
   );
 };
 
-export default GrammarCheckerForm;
+export default ParaphraserTool;
