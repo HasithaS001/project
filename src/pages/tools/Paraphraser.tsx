@@ -1,4 +1,3 @@
-import React from 'react';
 import WritingDashboard from '../../components/WritingDashboard';
 
 const Paraphraser = () => {

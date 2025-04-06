@@ -1,4 +1,3 @@
-import React from 'react';
 import { Navigate } from 'react-router-dom';
 import GrammarChecker from '../pages/tools/GrammarChecker';
 import Paraphraser from '../pages/tools/Paraphraser';
@@ -53,15 +52,15 @@ export const toolRoutes = [
   }
 ];
 
-export const defaultToolRoute = toolRoutes[0].path;
+// export const defaultToolRoute = toolRoutes[0].path;
 
-export const toolRoutesConfig = [
-  // Default redirect for /tools
-  { path: '', element: <Navigate to={defaultToolRoute} replace /> },
+// export const toolRoutesConfig = [
+//   // Default redirect for /tools
+//   { path: '', element: <Navigate to={defaultToolRoute} replace /> },
   
-  // Individual tool routes
-  ...toolRoutes,
+//   // Individual tool routes
+//   ...toolRoutes,
   
-  // Catch invalid tool routes and redirect to default
-  { path: '*', element: <Navigate to={defaultToolRoute} replace /> }
-];
+//   // Catch invalid tool routes and redirect to default
+//   { path: '*', element: <Navigate to={defaultToolRoute} replace /> }
+// ];
